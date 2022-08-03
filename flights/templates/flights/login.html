@@ -1,0 +1,12 @@
+{% extends "flights/layout.html" %}
+{% block body %}
+<h1> FLIGHTS </h1>
+<form method="POST" action="{%url 'login' %}">
+    {%csrf_token%}
+    <input type="text" name="username" placeholder="username" >
+    <input type="password" name="password" placeholder="password">
+    <input type="submit">
+</form>
+<div>{{message}} </div>
+<a href="{% url 'index' %}">return</a>
+{% endblock %}

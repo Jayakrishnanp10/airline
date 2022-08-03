@@ -1,0 +1,20 @@
+{% extends "flights/layout.html" %}
+{% block body %}
+<h1> FLIGHTS </h1>
+<form action="{% url 'book' %}" method="POST">
+    {%csrf_token%}
+    <input name="id" type="text" placeholder="id">
+    <input name="passengers1" type="text" placeholder="firstname">
+    <input name="passengers2" type="text" placeholder="lastname">
+
+    <select name="flight">
+        {% for flight in Flights %}
+        <option value="{{flight.id}}">{{flight.origin}} to {{flight.destination}} </option>
+        {% endfor %}
+    </select>
+    
+    <input type="submit" value="book">
+</form>
+<a href="{% url 'logout' %}">logout</a>
+
+{% endblock %}
